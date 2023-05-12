@@ -17,10 +17,34 @@ const Shop = () => {
 
     }, []);
 
+
+
     useEffect(() => {
-        const storeCart = getShoppingCart();
-        console.log(getShoppingCart);
-    }, [])
+        const storedCart = getShoppingCart();
+        const saveCart = [];
+        for (const id in storedCart) {
+            // console.log(id)
+            const addedProduct = products.find(product => product.id === id);
+
+
+            if (addedProduct) {
+
+                const quantity = storedCart[id];
+                // console.log(id,quantity)
+                addedProduct.quantity = quantity;
+                // console.log(addedProduct);
+
+                saveCart.push(addedProduct)
+            }
+
+            setCard(saveCart);
+
+
+        }
+
+    }, [products])
+
+
     const handleAddTOCard = (product) => {
         const newCard = [...card, product];
         setCard(newCard);
