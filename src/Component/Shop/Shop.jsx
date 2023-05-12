@@ -2,20 +2,29 @@ import React, { useEffect, useState } from 'react';
 import './Shop.css'
 import Product from '../Product/Product';
 import Cart from '../Cart/cart';
+import { addToDb, getShoppingCart } from '../../utilities/fakedb';
 
 const Shop = () => {
 
     const [products, setProducts] = useState([]);
     const [card, setCard] = useState([]);
 
+
     useEffect(() => {
         fetch('products.json')
             .then(res => res.json())
             .then(data => setProducts(data))
+
     }, []);
+
+    useEffect(() => {
+        const storeCart = getShoppingCart();
+        console.log(getShoppingCart);
+    }, [])
     const handleAddTOCard = (product) => {
         const newCard = [...card, product];
         setCard(newCard);
+        addToDb(product.id)
     }
     return (
         <div className='shop-container'>
@@ -31,7 +40,7 @@ const Shop = () => {
                 }
             </div>
             <div className="card-container">
-               <Cart cart={card}></Cart>
+                <Cart cart={card}></Cart>
             </div>
 
         </div>
