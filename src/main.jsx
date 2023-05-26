@@ -12,6 +12,7 @@ import Order from './Component/Order/Order.jsx';
 import Inventory from './Component/Inventory/Inventory.jsx';
 import Login from './Component/Login/Login.jsx';
 import cardloderData from './LoderData/Loderdata.js';
+import Chekout from './Component/Order/Chekout.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,8 +30,12 @@ const router = createBrowserRouter([
         // loader: () => fetch('products.json')
       },
       {
-        path: '/ inventory',
+        path: '/inventory',
         element: <Inventory></Inventory>,
+      },
+      {
+        path: '/chekout',
+        element: <Chekout></Chekout>,
       },
       {
         path: '/login',

@@ -7,5 +7,22 @@
     margin: 50px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 45px;
+    gap: 10px;
+}
+
+.processed-link {
+    text-decoration: none;
+}
+
+.btn-processed {
+    margin-top: 10px;
+    background-color: #FF9900;
+    width: 90%;
+    height: 56px;
+    font-size: 18px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
